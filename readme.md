@@ -1,70 +1,64 @@
-Program ini memproses citra grayscale menjadi citra biner lalu menerapkan operasi morfologi seperti erosi, dilasi, opening, closing, dan gradient menggunakan OpenCV. Seluruh proses ditampilkan secara interaktif melalui jendela tampilan.
+Pengolahan Citra Biner
 
-Persiapan Lingkungan
+Program Python untuk operasi dasar citra biner menggunakan OpenCV
 
-Pasang dependensi berikut:
+Deskripsi
+
+Proyek ini berisi contoh dasar pengolahan citra biner dan operasi morfologi menggunakan Python dan pustaka OpenCV. Program menampilkan proses mulai dari pembacaan citra grayscale, konversi menjadi citra biner, hingga penerapan operasi erosi, dilasi, opening, closing, dan gradient.
+Proyek ini ditujukan sebagai materi pembelajaran pada mata kuliah pengolahan citra.
+
+Kebutuhan Perangkat Lunak
+
+Program tidak memerlukan perangkat keras khusus.
+Perangkat lunak yang dibutuhkan:
+Python 3
+OpenCV
+NumPy
+
+Instalasi
+
+Pasang pustaka yang diperlukan dengan perintah:
 
 pip install opencv-python
 pip install numpy
 
-Siapkan folder kerja seperti berikut:
 
-proyek/
+Letakkan citra input pada folder bernama img dengan nama file binerPy.jpg.
+Pastikan skrip utama berada satu direktori dengan folder tersebut.
+
+Penggunaan
+
+Program akan memuat citra grayscale, mengubahnya menjadi citra biner, kemudian menjalankan beberapa operasi morfologi.
+Setiap hasil operasi ditampilkan dalam jendela OpenCV.
+
+Skrip utama menyediakan langkah pemrosesan berikut:
+
+set grayscale
+Membaca citra asli dalam format grayscale.
+
+threshold
+Mengubah citra grayscale menjadi citra biner.
+
+erode
+Melakukan operasi erosi untuk mengecilkan area objek.
+
+dilate
+Melakukan operasi dilasi untuk memperbesar area objek.
+
+opening
+Melakukan erosi lalu dilasi untuk menghilangkan noise kecil.
+
+closing
+Melakukan dilasi lalu erosi untuk menutup celah atau lubang kecil.
+
+gradient
+Menghasilkan perbedaan antara dilasi dan erosi untuk menonjolkan tepi objek.
+
+Contoh citra masukan dan alur lengkap pemrosesan terdapat pada kode yang disediakan.
+
+Struktur Folder
+
+proyek
 main.py
-img/
+img
 binerPy.jpg
-
-Cara Menjalankan Program
-
-Jalankan dengan:
-
-python main.py
-
-Program akan membuka beberapa jendela hasil proses secara bergantian. Setiap tampilan menunggu penekanan tombol sebelum lanjut ke proses berikutnya.
-
-Penjelasan Alur Program dalam Format prom py
-Membaca Citra Grayscale
-image_gray = cv2.imread(path_file, cv2.IMREAD_REDUCED_GRAYSCALE_2)
-
-Konversi Menjadi Citra Biner
-\_, image_binary = cv2.threshold(image_gray, 127, 255, cv2.THRESH_BINARY)
-
-Membuat Kernel
-kernel2 = np.ones((11, 11))
-
-Operasi Erosi
-erode = cv2.erode(image_binary.copy(), None)
-
-Operasi Dilasi
-dilasi = cv2.dilate(image_binary.copy(), kernel2)
-
-Operasi Opening
-opening = cv2.morphologyEx(image_binary, cv2.MORPH_OPEN, None)
-
-Operasi Closing
-closing = cv2.morphologyEx(image_binary, cv2.MORPH_CLOSE, kernel2)
-
-Operasi Gradient
-gradient = dilasi - erode
-
-Penjelasan Hasil
-
-Erosi mengurangi ukuran objek.
-Dilasi menambah luas objek.
-Opening menghilangkan noise kecil.
-Closing menutup celah dan lubang kecil.
-Gradient menunjukkan garis tepi objek.
-
-Pengembangan
-
-Bagian kode tambahan seperti operasi top hat, black hat, dan iterasi morfologi tersedia dalam komentar dan dapat diaktifkan sesuai kebutuhan eksplorasi.
-
-Anggota Kelompok
-
-Abdul Aziez A. S
-
-Dwi Nurcahyo
-
-Rayhan Maullana B.
-
-Ryan Hidayat
