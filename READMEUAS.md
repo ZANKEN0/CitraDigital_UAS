@@ -38,3 +38,49 @@ Program ini dibuat untuk melakukan pemrosesan citra biner serta menerapkan berba
 
 6. Menampilkan Hasil
    Setiap hasil operasi morfologi ditampilkan menggunakan cv2.imshow() dan menunggu input tombol dengan cv2.waitKey(0).
+
+Program ini digunakan untuk melakukan pengolahan citra digital menggunakan operasi morfologi pada citra biner. Proyek ini merupakan bagian dari tugas kuliah terkait materi morfologi citra.
+
+Fitur Utama
+Program ini melakukan beberapa tahapan:
+Membaca citra grayscale
+Mengubah grayscale menjadi citra biner menggunakan threshold
+Menerapkan operasi morfologi:
+Erosi
+Dilasi
+Opening
+Closing
+Morphological Gradient
+
+Cara Menjalankan
+Requirements
+Pastikan library berikut telah terpasang:
+pip install opencv-python
+pip install numpy
+Menjalankan Program
+Simpan file kode Python ini dalam folder proyek
+Tempatkan citra input pada folder img dengan nama binerPy.jpg
+
+Jalankan program:
+python nama_file.py
+Struktur Proyek (opsional)
+project/
+│
+├── img/
+│ └── binerPy.jpg
+│
+├── code.py
+└── README.md
+
+Penjelasan Singkat Operasi
+Erosi: mengikis objek, berguna untuk menghilangkan noise kecil
+Dilasi: memperbesar objek
+Opening: erosi lalu dilasi, untuk membersihkan noise
+Closing: dilasi lalu erosi, untuk menutup celah kecil
+Gradient: menampilkan tepi objek sebagai selisih dilasi dan erosi
+
+Kontributor
+Abdul Aziez A. S
+Dwi Nurcahyo
+Rayhan Maullana B.
+Ryan Hidayat
