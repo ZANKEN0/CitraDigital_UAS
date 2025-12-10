@@ -1,64 +1,75 @@
-Pengolahan Citra Biner
+# Implementasi Operasi Morfologi Citra (Python & OpenCV)
 
-Program Python untuk operasi dasar citra biner menggunakan OpenCV
+Proyek ini merupakan implementasi dasar pengolahan citra biner menggunakan bahasa pemrograman Python dengan pustaka OpenCV. Program ini memuat citra grayscale, mengubahnya menjadi citra biner melalui proses *thresholding*, kemudian menerapkan berbagai operasi morfologi seperti erosi, dilasi, opening, closing, dan morphological gradient.
 
-Deskripsi
+Proyek ini dibuat sebagai bagian dari pembelajaran mata kuliah **Pengolahan Citra Digital** untuk mendemonstrasikan cara kerja operasi morfologi pada citra biner.
 
-Proyek ini berisi contoh dasar pengolahan citra biner dan operasi morfologi menggunakan Python dan pustaka OpenCV. Program menampilkan proses mulai dari pembacaan citra grayscale, konversi menjadi citra biner, hingga penerapan operasi erosi, dilasi, opening, closing, dan gradient.
-Proyek ini ditujukan sebagai materi pembelajaran pada mata kuliah pengolahan citra.
+## 📂 Struktur Direktori
 
-Kebutuhan Perangkat Lunak
+Pastikan struktur folder proyek Anda terlihat seperti berikut agar program berjalan tanpa error:
 
-Program tidak memerlukan perangkat keras khusus.
-Perangkat lunak yang dibutuhkan:
-Python 3
-OpenCV
-NumPy
+```text
+project-folder/
+│
+├── main.py           # Script utama program
+└── img/
+    └── binerPy.jpg   # Citra input (wajib ada)
 
-Instalasi
+⚙️ Prasyarat & Instalasi
+Program ini tidak membutuhkan perangkat keras khusus. Anda hanya memerlukan komputer yang dapat menjalankan Python.
 
-Pasang pustaka yang diperlukan dengan perintah:
+1. Instalasi Dependensi
+Jalankan perintah berikut di terminal untuk menginstal pustaka yang diperlukan:
 
-pip install opencv-python
-pip install numpy
+Bash
 
+pip install opencv-python numpy
+2. Persiapan File
+Pastikan file main.py dan folder img (berisi gambar) ditempatkan dalam satu direktori proyek yang sama.
 
-Letakkan citra input pada folder bernama img dengan nama file binerPy.jpg.
-Pastikan skrip utama berada satu direktori dengan folder tersebut.
+🚀 Cara Penggunaan (Usage)
+Program ini akan memproses citra dan menampilkan hasilnya secara bertahap dalam jendela popup OpenCV. Setiap jendela akan menunggu input tombol dari keyboard sebelum melanjutkan ke proses berikutnya.
 
-Penggunaan
+Langkah menjalankan program:
 
-Program akan memuat citra grayscale, mengubahnya menjadi citra biner, kemudian menjalankan beberapa operasi morfologi.
-Setiap hasil operasi ditampilkan dalam jendela OpenCV.
+Buka terminal atau command prompt.
 
-Skrip utama menyediakan langkah pemrosesan berikut:
+Arahkan ke direktori proyek.
 
-set grayscale
-Membaca citra asli dalam format grayscale.
+Jalankan perintah berikut:
 
-threshold
-Mengubah citra grayscale menjadi citra biner.
+Bash
 
-erode
-Melakukan operasi erosi untuk mengecilkan area objek.
+python main.py
+Urutan tampilan hasil program:
 
-dilate
-Melakukan operasi dilasi untuk memperbesar area objek.
+Citra Grayscale (Asli)
 
-opening
-Melakukan erosi lalu dilasi untuk menghilangkan noise kecil.
+Citra Biner (Hasil Threshold)
 
-closing
-Melakukan dilasi lalu erosi untuk menutup celah atau lubang kecil.
+Hasil Erosi
 
-gradient
-Menghasilkan perbedaan antara dilasi dan erosi untuk menonjolkan tepi objek.
+Hasil Dilasi
 
-Contoh citra masukan dan alur lengkap pemrosesan terdapat pada kode yang disediakan.
+Hasil Opening
 
-Struktur Folder
+Hasil Closing
 
-proyek
-main.py
-img
-binerPy.jpg
+Hasil Morphological Gradient
+
+🧠 Penjelasan Fungsi Pemrosesan
+Berikut adalah detail operasi yang dilakukan oleh program ini:
+
+Memuat Citra Grayscale Membaca citra dari file dan mengubahnya menjadi format skala abu-abu (grayscale).
+
+Thresholding Mengubah citra grayscale menjadi citra biner (hitam putih mutlak) menggunakan nilai ambang batas (threshold) tertentu.
+
+Erosi (Erosion) Mengurangi area objek dengan "mengikis" piksel tepi. Berguna untuk menghilangkan noise kecil di luar objek.
+
+Dilasi (Dilation) Memperbesar area objek dengan menambah piksel di bagian tepi. Berguna untuk mengisi lubang kecil di dalam objek.
+
+Opening Kombinasi operasi Erosi lalu Dilasi. Digunakan untuk menghilangkan noise (bintik-bintik kecil) tanpa mengubah bentuk objek utama secara signifikan.
+
+Closing Kombinasi operasi Dilasi lalu Erosi. Digunakan untuk menutup celah atau lubang kecil di dalam objek (foreground).
+
+Morphological Gradient Menghasilkan citra tepi (outline) objek. Didapatkan dari selisih antara hasil Dilasi dan hasil Erosi.
